@@ -86,17 +86,19 @@
 
     .sidebar {
       flex: 1;
-      background-color: #3e3c61;
+      background-color: purple;
+      border-right: 1px solid gray;
       position: relative;
 
       .navbar {
         display: flex;
         align-items: center;
-        background-color: #2f2d52;
+        background-color: rgb(83, 4, 83);
         height: 50px;
         padding: 10px;
         justify-content: space-between;
         color: #ddddf7;
+
 
         .logo {
           font-weight: bold;
@@ -141,6 +143,51 @@
     .chat {
       flex: 2;
       background-color: rgb(219, 215, 215);
+
+      .chatInfo {
+        height: 50px;
+        background-color: rgb(83, 4, 83);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        color: lightgray;
+        .other-user{
+          display: flex;
+          gap: 10px;
+          img {
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+        .chatIcons {
+          display: flex;
+          gap: 10px;
+  
+        }
+      }
+      .messages{
+        padding: 10px;
+        height: calc(100% - 140px);
+        
+      }
+      .input{
+        height: 50px;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 10px;
+
+        input{
+          width: 80%;
+          border: none;
+          outline: none;
+          
+        }
+      }
     }
 
   }
