@@ -229,7 +229,7 @@
       .messages{
         padding: 10px;
         height: calc(100% - 140px);
-        overflow-y: scroll;
+        overflow: scroll;
         &::-webkit-scrollbar{
           display: none;
         }
