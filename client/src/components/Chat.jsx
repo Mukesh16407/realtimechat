@@ -14,8 +14,8 @@ export const Chat = () => {
     <div className="chat">
       <div className="chatInfo">
         <div className="other-user">
-          <img
-            src={data.user?.photoURL}alt="chat"/>
+          {data.user.photoURL && (<img
+            src={data.user?.photoURL}alt="chat"/>)}
           <span>{data.user?.displayName}</span>
         </div>
         <div className="chatIcons">

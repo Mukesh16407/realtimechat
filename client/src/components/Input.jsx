@@ -1,8 +1,7 @@
 import React, { useContext, useState } from "react";
 import EmojiEmotionsOutlinedIcon from "@mui/icons-material/EmojiEmotionsOutlined";
 import AttachFileOutlinedIcon from "@mui/icons-material/AttachFileOutlined";
-import MicNoneOutlinedIcon from "@mui/icons-material/MicNoneOutlined";
-import NavigateNextRoundedIcon from "@mui/icons-material/NavigateNextRounded";
+
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import { v4 as uuid } from "uuid";
@@ -12,22 +11,14 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 
 export const Input = () => {
-  const [chekButton, setCheckButton] = useState(false);
+  
   const [text, setText] = useState("");
   const [img, setImg] = useState(null);
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
 
-  const handleCheckButton = (e) => {
-    if (e.target.value) {
-      setCheckButton(true);
-      setText(e.target.value);
-    } else {
-      setCheckButton(false);
-     
-    }
-  };
+  
   const handleSend = async() => {
     if (img) {
       const storageRef = ref(storage, uuid());
@@ -79,8 +70,14 @@ export const Input = () => {
   };
   return (
     <div className="input">
-      <div className="send">
         <EmojiEmotionsOutlinedIcon />
+        <input
+        type="text"
+        placeholder="Type something..."
+        onChange={(e) => setText(e.target.value)}
+        value={text}
+      /> 
+      <div className="send">
         <input
           type="file"
           style={{ display: "none" }}
@@ -90,16 +87,10 @@ export const Input = () => {
         <label htmlFor="file">
           <AttachFileOutlinedIcon />
         </label>
+        <button onClick={handleSend}>Send</button>
       </div>
-      <input
-        type="text"
-        placeholder="Type something..."
-        value={text}
-        onChange={handleCheckButton}
-      />
-      <div className="mic" onClick={handleSend}>
-        {chekButton ? <NavigateNextRoundedIcon /> : <MicNoneOutlinedIcon />}
-      </div>
+      
+      
     </div>
   );
 };

@@ -287,6 +287,7 @@
           border: none;
           height: 80%;;
           padding-left: 10px;
+          margin-left: 10px;
           outline: none;
           border-radius: 7px;
           font-size: 18px;
@@ -300,8 +301,17 @@
           align-items: center;
           gap: 10px;
         }
-        .mic{
-          margin-right: 15px;
+        button {
+          border: none;
+          padding: 10px 15px;
+          margin-right: 10px;
+          color: white;
+          background-color:purple;
+          cursor: pointer;
+          border-radius: 5px;
+          &:hover{
+            background-color: rgb(97, 3, 97);
+          }
         }
       }
       .messageContent {
