@@ -4,6 +4,7 @@ import { AuthContext } from "./context/AuthContext";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
+import { Toaster } from "react-hot-toast";
 import "./style.scss";
 
 function App() {
@@ -18,9 +19,10 @@ function App() {
     return children
   };
 
-  console.log(currentUser)
+  
   return (
     <div>
+       <Toaster position="top-center" reverseOrder={false} />
       <Routes>
         <Route path="/">
           <Route index element={ <ProtectedRoute><Home /></ProtectedRoute>} />
